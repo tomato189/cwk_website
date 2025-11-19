@@ -1,0 +1,49 @@
+@import "tailwindcss";
+html, body { @apply bg-black text-white; }
+* {
+  scrollbar-width: none; /* Firefox */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Safari */
+}
+/* تأثير الخلفيات/الأزرار المستوحى من Aceternity UI */
+.shiny-wrap {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.shiny-wrap::after {
+  content: "";
+  position: absolute;
+  inset: -200% 0 auto -150%;
+  width: 60%;
+  height: 200%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.45), transparent);
+  filter: blur(4px);
+  pointer-events: none;
+  animation: shine 1.6s linear infinite;
+}
+
+/* قناع نص رقيق (خط كبير) للـ Game section */
+.stroke-mask {
+  -webkit-text-stroke: 1px rgba(255,255,255,0.06);
+  color: transparent;
+}
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-pulseRing {
+  animation: pulseRing 1.6s cubic-bezier(0.22, 0.61, 0.36, 1) infinite;
+}
